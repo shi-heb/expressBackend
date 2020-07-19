@@ -7,6 +7,7 @@ dotenv.config();
 //imports routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
+const mailRoute = require('./routes/mail');
  //connect to db
 mongoose.connect(process.env.DB_CONNECT,{useUnifiedTopology: true,useNewUrlParser : true,useFindAndModify: true},
 ()=>console.log('connect to db!!')
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 //route middlwares
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
+app.use('/api/mails', mailRoute);
 
 app.listen(4000, ()=>console.log('server up and running'));
 

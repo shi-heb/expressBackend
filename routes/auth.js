@@ -39,7 +39,11 @@ if (error) return res.status(400).send(error.details[0].message);
 
 
 const emailExist = await User.findOne({email:req.body.email});
-if (emailExist) return res.status(400).send('email exist !!');
+if (emailExist) return res.status(400).send('user existe deja')
+//json({
+  //text: "cette adresse existe deja"
+//});
+//send('email exist !!');
 
 const salt = await bcrypt.genSalt(10);
 const hachedPassword = await bcrypt.hash(req.body.password,salt);
