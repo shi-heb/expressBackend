@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
     "crypto": "^1.0.1",
