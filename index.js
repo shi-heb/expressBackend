@@ -3,11 +3,15 @@ const app = express();
 var bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+
+
+//let blockChainModel = require("../model/model");
 dotenv.config();
 //imports routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
 const mailRoute = require('./routes/mail');
+const blockchainRoute = require('./routes/bocksApi');
  //connect to db
 mongoose.connect(process.env.DB_CONNECT,{useUnifiedTopology: true,useNewUrlParser : true,useFindAndModify: true},
 ()=>console.log('connect to db!!')
@@ -35,6 +39,7 @@ app.use(bodyParser.json());
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
 app.use('/api/mails', mailRoute);
+app.use('/api/blocks',blockchainRoute);
 
 app.listen(4000, ()=>console.log('server up and running'));
 

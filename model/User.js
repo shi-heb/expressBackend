@@ -26,7 +26,9 @@ const userSchema = new mongoose.Schema({
         enum : ['user', 'admin'], 
         default: 'user' 
         }, 
-        isactive: { type: Boolean, default: false }
+        isactive: { type: Boolean, default: false },
+        amount: { type: Number,default:0},
+        wallet: { type: Number,default:0}
    
 
 });

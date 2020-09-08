@@ -126,7 +126,8 @@ router.post('/login',async(req,res)=>{
     nom: user.name,
     email: user.email,
     role:user.role,
-    isactive:user.isactive
+    isactive:user.isactive,
+    amount:user.amount
   }
 
 
@@ -223,5 +224,27 @@ router.put('/desactivateUser/:id',(req, res, next) => {
     }
   })
 })
+
+
+router.get('/amount/:id', (req, res)=> {    
+  User.findById(req.params.id, (err, geld)=>{
+     //res.send(geld);
+    a =geld.amount;
+    res.send({a});
+      
+      
+  }); 
+});
+
+
+router.get('/wallet/:id', (req, res)=> {    
+  User.findById(req.params.id, (err, geld)=>{
+     //res.send(geld);
+    a =geld.wallet;
+    res.send({a});
+      
+      
+  }); 
+});
 
 module.exports = router;
