@@ -78,7 +78,7 @@ router.put('/acheter/',async(req, res, next) => {
 });
 
 
-router.post('/wallet/new', async(req,res)=>{
+router.put('/wallet/new', async(req,res)=>{
     
    theSender =  await User.findOne({email:req.body.email});
 
@@ -95,8 +95,8 @@ if(theSender.amount<req.body.amount) return res.status(400).send('your amount is
 
 
    await  User.findByIdAndUpdate(id, { 
-  $set: { wallet:theSender.wallet+(req.body.amount)/3},
-  $set: { amount:theSender.amount-req.body.amount}});
+  //$set: { wallet:theSender.wallet+(req.body.amount)/3},
+  $set: { amount:theSender.amount-req.body.amount,wallet:theSender.wallet+(req.body.amount)/3}})
 
   
 res.send("you just create wallet ");
