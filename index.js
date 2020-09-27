@@ -8,10 +8,10 @@ const dotenv = require('dotenv');
 //let blockChainModel = require("../model/model");
 dotenv.config();
 //imports routes
-const authRoute = require('./routes/auth');
+const authRoute = require('./routes/UserWebServices');
 const postRoute = require('./routes/posts');
 const mailRoute = require('./routes/mail');
-const blockchainRoute = require('./routes/bocksApi');
+const blockchainRoute = require('./routes/BlockchainWebServices');
  //connect to db
 mongoose.connect(process.env.DB_CONNECT,{useUnifiedTopology: true,useNewUrlParser : true,useFindAndModify: true},
 ()=>console.log('connect to db!!')
